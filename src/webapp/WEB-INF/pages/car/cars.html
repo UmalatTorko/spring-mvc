@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List cars</title>
+
+    <style>
+        table th, table td {padding: 6px;}
+        .row  {
+            font-style: normal;
+        }
+        .even-row {
+            color: black;
+        }
+        .odd-row {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <h2> BMW list </h2>
+    <br/>
+    <table>
+        <tr>
+            <th>Модель</th>
+            <th>Серия</th>
+            <th>Мотор</th>
+        </tr>
+        <tr th:each="car, state : ${carsList}"
+            class="row" th:classappend="${state.odd} ? 'odd-row' : 'even-row'">
+            <td th:text="${car.model}"></td>
+            <td th:text="${car.series}"></td>
+            <td th:text="${car.engine}"></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
