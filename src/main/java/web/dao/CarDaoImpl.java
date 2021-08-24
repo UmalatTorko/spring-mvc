@@ -5,6 +5,7 @@ import web.model.Car;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Repository
 public class CarDaoImpl implements CarDao{
@@ -24,7 +25,7 @@ public class CarDaoImpl implements CarDao{
         if (count >= 5 || count == 0) {
             return carList;
         } else {
-            return carList.subList(0, count);
+            return carList.stream().limit(count).collect(Collectors.toList());
         }
     }
 }
