@@ -4,19 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <title>List cars</title>
-
-    <style>
-        table th, table td {padding: 6px;}
-        .row  {
-            font-style: normal;
-        }
-        .even-row {
-            color: black;
-        }
-        .odd-row {
-            color: blue;
-        }
-    </style>
 </head>
 <body>
 <div>
@@ -28,11 +15,10 @@
             <th>Серия</th>
             <th>Мотор</th>
         </tr>
-        <tr th:each="car, state : ${carsList}"
-            class="row" th:classappend="${state.odd} ? 'odd-row' : 'even-row'">
-            <td th:text="${car.model}"></td>
-            <td th:text="${car.series}"></td>
-            <td th:text="${car.engine}"></td>
+        <tr th:each="car : ${cars}">
+            <td th:text="${car.getModel()}"></td>
+            <td th:text="${car.getSeries()}"></td>
+            <td th:text="${car.getEngine()}"></td>
         </tr>
     </table>
 </div>

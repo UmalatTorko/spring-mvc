@@ -1,8 +1,5 @@
 package web.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Car {
     private String model;
     private int series;
@@ -15,24 +12,6 @@ public class Car {
         this.model = model;
         this.series = series;
         this.engine = engine;
-    }
-
-    public List<Car> createListWithFiveCars(){
-        List<Car> carList = new ArrayList<>();
-        carList.add(new Car("BMW", 3, 1.6));
-        carList.add(new Car("BMW", 4, 2.0));
-        carList.add(new Car("BMW", 5, 2.0));
-        carList.add(new Car("BMW", 6, 3.5));
-        carList.add(new Car("BMW", 7, 6.3));
-        return carList;
-    }
-
-    public List<Car> getCarsList(List<Car> carList, int count) {
-        if (count >= 5) {
-            return carList;
-        } else {
-            return carList.subList(0, count);
-        }
     }
 
     public String getModel() {
